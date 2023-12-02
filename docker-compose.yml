@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  mongo:
+    image: mongo:latest
+    container_name: kawhot_mongo
+    restart: always
+    volumes:
+      - ./data/mongo:/data/db
+    ports:
+      - 27017:27017
+    logging:
+      driver: none
+
+  app:
+    container_name: kawhot_backend
+    build:
+      context: backend
+    depends_on:
+      - mongo
+
+    ports:
+      - 8081:8081
+    environment:
+      - DB_URI=mongodb://kawhot_mongo:27017
+
+    tty: true
