@@ -1,0 +1,965 @@
+@font-face {
+  font-family: "TT Travels";
+  font-weight: 400;
+  font-style: normal;
+  src: url("../fonts/TT\ Travels-Regular.otf");
+}
+
+@font-face {
+  font-family: "TT Travels";
+  font-weight: 500;
+  font-style: normal;
+  src: url("../fonts/TT\ Travels-Medium.otf");
+}
+
+.preloader {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: #71f9f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: -2vh;
+  transition: 1s;
+  z-index: 3;
+}
+
+.preloader-content {
+  position: relative;
+  display: flex;
+}
+
+.first-dot,
+.second-dot,
+.third-dot {
+  animation: 1s infinite;
+}
+
+.first-dot {
+  animation-name: first;
+}
+.second-dot {
+  animation-name: second;
+}
+.third-dot {
+  animation-name: third;
+}
+
+@keyframes first {
+  0% {
+    opacity: 0;
+  }
+  33% {
+    opacity: 1;
+  }
+}
+
+@keyframes second {
+  0% {
+    opacity: 0;
+  }
+  66% {
+    opacity: 1;
+  }
+}
+
+@keyframes third {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+body {
+  height: 80vh;
+  background-color: #f8f8f8;
+  font-family: "TT Travels";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 36px;
+  margin: 0;
+  padding: 2vh;
+}
+
+.back-to-quiz {
+  text-decoration: none;
+  display: flex;
+  width: 15vw;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  margin-bottom: 2vh;
+}
+
+.card-footer {
+  margin-top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.quiz-header {
+  font-weight: 400;
+  font-size: calc((100vw - 85rem) / (80 - 30) * (1.5 - 1) + 1rem);
+  color: #1c1c1c;
+  margin-left: auto;
+}
+
+.answers-count {
+  display: block;
+  margin-top: 0;
+  font-weight: 500;
+  font-style: normal;
+  font-size: calc((100vw - 50rem) / (80 - 30) * (1.5 - 1) + 1rem);
+}
+
+.timer {
+  display: block;
+  margin-top: 0;
+  font-weight: 500;
+  font-style: normal;
+  font-size: calc((100vw - 50rem) / (80 - 30) * (1.5 - 1) + 1rem);
+}
+
+.question {
+  display: block;
+  margin-top: 0;
+  margin-top: 2vh;
+  font-style: normal;
+  font-weight: 500;
+  font-size: calc((100vw - 55rem) / (80 - 30) * (1.5 - 1) + 1rem);
+}
+
+.frame[disabled] {
+  font-family: "TT Travels";
+  font-weight: 500;
+  font-size: calc((100vw - 50rem) / (80 - 30) * (1.5 - 1) + 1rem);
+  border-radius: 10px;
+  padding: 5px 10px;
+  border: 1px solid var(--, #1c1c1c);
+  color: #000;
+  background: #f8f8f8;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.question-illustration {
+  width: 43vw;
+  height: auto;
+}
+
+.answers-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.answers-list-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 4vh;
+}
+
+.answers-list-item:last-child {
+  margin-bottom: 0;
+}
+
+.answer {
+  font-family: "TT Travels";
+  font-size: calc((100vw - 70rem) / (80 - 30) * (1.5 - 1) + 1rem);
+  font-weight: 500;
+  text-align: left;
+
+  display: flex;
+  height: 16vh;
+  padding-left: 2vw;
+  padding-right: 3vw;
+  align-items: center;
+
+  flex-shrink: 0;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.first-answer {
+  background: #7eff8b;
+}
+.second-answer {
+  background: #01e1ff;
+}
+.third-answer {
+  background: #ff97d0;
+}
+.fourth-answer {
+  background: #fbfe7a;
+}
+.answer.first-answer:hover {
+  background: #53e862;
+}
+.answer.second-answer:hover {
+  background: rgba(1, 199, 225, 0.839);
+}
+.answer.third-answer:hover {
+  background: rgba(212, 124, 172, 0.839);
+}
+.answer.fourth-answer:hover {
+  background: rgba(208, 210, 99, 0.839);
+}
+
+.answer:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px #cbd6ee;
+}
+
+.answer div {
+  margin-right: 20px;
+}
+
+.question-indexes {
+  line-height: 2vh;
+  font-size: calc((100vw - 55rem) / (80 - 30) * (1.5 - 1) + 1rem);
+}
+
+.skip-question {
+  color: #000;
+  font-weight: 400;
+  line-height: 2vh;
+  font-size: calc((100vw - 85rem) / (80 - 30) * (1.5 - 1) + 1rem);
+  padding: 10px 15px;
+
+  border-radius: 10px;
+  border: 1px solid var(--, #1c1c1c);
+  background: #fff;
+  box-shadow: 2px 4px 10px 0px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+
+.skip-question:hover {
+  background: #e0dfdf;
+}
+
+.skip-question:active {
+  background: #737373;
+}
+
+.card-content-column {
+  display: flex;
+  flex-direction: column;
+  margin-left: 70px;
+}
+
+.question-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  display: block;
+  align-self: center;
+}
+
+.qr-code-generation-header {
+  height: 5vh;
+  padding-bottom: 1vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--btn-next, #1c1c1c);
+  margin-bottom: 10vh;
+}
+
+.team {
+  font-family: "Urbanist";
+  color: #4b4a4a;
+  letter-spacing: 1.2px;
+  font-size: calc((100vw - 10rem) / (80 - 30) * (1.5 - 1) + 1rem);
+  font-weight: 500;
+  line-height: normal;
+  padding: 0;
+  margin: 0;
+  margin-left: 15px;
+}
+
+.header-content-column {
+  width: 176px;
+  display: flex;
+}
+
+.main-page-with-qr {
+  margin: 0;
+  margin-bottom: 5vh;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 8vh;
+}
+
+.main-page-content-column {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+
+  width: 42vw;
+  height: 29vh;
+  border-radius: 20px;
+  background: #71f9f9;
+}
+
+.code-generation {
+  font-size: calc((100vw - 45rem) / (80 - 30) * (1.5 - 1) + 1rem);
+  font-weight: 600;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.question-symbol {
+  position: absolute;
+  z-index: 2;
+  top: 13vh;
+  left: 24vw;
+  width: 7vw;
+  height: auto;
+}
+
+.crown-symbol {
+  position: absolute;
+  z-index: 2;
+  top: 37vh;
+  left: 69vw;
+  width: 10vw;
+  height: auto;
+}
+
+.footer-page-with-qr {
+  position: absolute;
+  top: 85vh;
+  left: auto;
+
+  display: flex;
+  width: 98vw;
+  justify-content: space-between;
+  margin-top: 6vh;
+}
+
+.count {
+  font-size: calc((100vw - 55rem) / (80 - 30) * (1.5 - 1) + 1rem);
+  font-weight: normal;
+  margin: 0;
+}
+
+.member {
+  width: 1vw;
+  height: auto;
+}
+
+.members-count {
+  width: 2.5vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 5px 10px;
+  border-radius: 10px;
+  border: 1px solid var(--stroke-btn, #737373);
+  background: #fff;
+}
+
+.start-quiz {
+  font-family: "TT Travels";
+  color: var(--btn-next, #1c1c1c);
+  font-weight: 400;
+  line-height: 2vh;
+  font-size: calc((100vw - 85rem) / (80 - 30) * (1.5 - 1) + 1rem);
+  padding: 10px 15px;
+
+  border-radius: 10px;
+  border: 1px solid var(--stroke-btn, #737373);
+  background: #71f9f9;
+  box-shadow: 4px 4px 7px 0px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+
+.start-quiz:hover {
+  background: #adffff;
+}
+
+.start-quiz:active {
+  background: #737373;
+}
+
+.pin-code-header {
+  font-size: calc((100vw - 20rem) / (80 - 30) * (1.5 - 1) + 1rem);
+  font-weight: 600;
+  line-height: normal;
+  margin: 0;
+  padding: 0;
+}
+
+.join-quiz {
+  margin: 0;
+  padding: 0;
+  width: 42vw;
+  height: 29vh;
+  border-radius: 20px;
+  background: #71f9f9;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.pin-code {
+  font-size: calc((100vw - 70rem) / (60 - 30) * (1.5 - 1) + 3rem);
+  font-weight: 600;
+  line-height: normal;
+  margin: 0;
+  padding: 0;
+}
+
+.qr-code {
+  display: block;
+  width: 11vw;
+  height: auto;
+}
+
+.members-content-column {
+  display: flex;
+}
+
+.waiting {
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+  font-size: calc((100vw - 50rem) / (80 - 30) * (1.5 - 1) + 1rem);
+  font-weight: 500;
+  line-height: normal;
+  margin: 0;
+  padding: 0;
+}
+
+.members-list {
+  margin: 0;
+  /* margin-bottom: 1vh; */
+  padding: 0;
+  list-style: none;
+  display: flex;
+  width: 60vw;
+  flex-wrap: wrap;
+  gap: 1vw;
+  justify-content: center;
+}
+
+.members-list-item {
+  opacity: 0;
+  display: flex;
+  width: 9.5vw;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-radius: 15px;
+  background: #e6cfff;
+}
+
+.member-item {
+  width: 3vw;
+  height: auto;
+}
+
+.member-nickname {
+  font-size: calc((100vw - 95rem) / (80 - 30) * (1.5 - 1) + 1rem);
+  font-weight: 400;
+  padding: 0;
+  margin: 0;
+  margin-left: 0.2vw;
+}
+
+.additional {
+  display: none;
+  font-size: calc((100vw - 25rem) / (80 - 30) * (1.5 - 1) + 1rem);
+  font-weight: 400;
+  line-height: normal;
+  align-self: flex-end;
+}
+
+.hidden {
+  display: none;
+}
+
+.question-preview-main-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  margin: 27vh auto;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: auto;
+  margin: -2vh;
+  padding-top: 10vh;
+  padding-bottom: 10vh;
+  background: #71f9f9;
+}
+
+.question-preview {
+  font-size: calc((100vw - 35rem) / (80 - 30) * (1.5 - 1) + 1rem);
+  font-weight: 500;
+  line-height: normal;
+  margin: 0;
+  padding: 0;
+  width: 35vw;
+}
+
+.next-button {
+  display: none;
+  margin-left: auto;
+  color: #000;
+  font-weight: 400;
+  line-height: 3vh;
+  font-family: "TT Travels";
+  font-size: calc((100vw - 50rem) / (80 - 30) * (1.5 - 1) + 1rem);
+  padding: 10px 15px;
+
+  border-radius: 10px;
+  border: 1px solid var(--, #1c1c1c);
+  background: #fff;
+  box-shadow: 2px 4px 10px 0px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+
+.next-button:hover {
+  background: rgba(224, 223, 223, 0.8);
+}
+
+.next-button:active {
+  background: rgba(115, 115, 115, 0.8);
+}
+
+.right-answer-border {
+  display: flex;
+  margin-left: -1vw;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  padding: 10px;
+  border-radius: 50%;
+  border: 1px solid black;
+}
+
+.column {
+  position: relative;
+  z-index: -1;
+  width: 5vw;
+  opacity: 0.5;
+  border-radius: 10px;
+  margin-bottom: -5vh;
+}
+
+.answer-number {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 5vw;
+  height: 7vh;
+  border-radius: 10px;
+}
+
+.rating {
+  display: none;
+  width: 43vw;
+  height: 65vh;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.rating-content-column {
+  display: flex;
+  margin-top: 1.5vh;
+  width: 5vw;
+  justify-content: center;
+  align-items: center;
+}
+
+.member-rating {
+  width: 1vw;
+  height: auto;
+  margin-right: 1vw;
+}
+
+.answer-count {
+  display: block;
+  padding: 0;
+  margin: 0;
+  font-size: calc((100vw - 45rem) / (80 - 30) * (1.5 - 1) + 1rem);
+}
+
+.rating-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  width: 27vw;
+  justify-content: space-between;
+}
+
+.rating-list-item {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.right-rating-border {
+  display: flex;
+  /* margin-left: -1vw; */
+  justify-content: center;
+  align-items: center;
+  width: 2vw;
+  height: 2vw;
+  padding: 10px;
+  border-radius: 50%;
+  border: 1px solid black;
+}
+
+/* form */
+
+.quiz-redactor-form {
+  font-family: "TT Travels";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 30px;
+  margin-left: -2vw;
+}
+.redactor-main {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  width: 100%;
+  border-top: 1px solid #000;
+}
+
+.questions {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.question-template {
+  display: flex;
+  flex-direction: column;
+  width: 13vw;
+}
+.question-list {
+  display: flex;
+  flex-direction: column;
+  width: 13vw;
+  height: 87vh;
+  background-color: #e0dfdf;
+}
+
+.redactor-answers-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  width: 40vw;
+}
+.question-info-wrapper {
+  width: 30vw;
+}
+
+.question-list {
+  font-family: "TT Travels";
+  font-size: calc((100vw - 45rem) / (80 - 30) * (1.5 - 1) + 1rem);
+  color: #000;
+  font-weight: 400;
+  border: none;
+}
+.question-number {
+  margin-left: 2vw;
+}
+.question-template-wrapper {
+  display: flex;
+}
+.wrapper-buttons {
+  align-self: end;
+  margin-right: 0.5vw;
+}
+.redactor-question-preview {
+  width: 12vw;
+  background-color: #fff;
+  height: 13vh;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.add-question {
+  display: flex;
+  width: 12vw;
+  height: 5vh;
+  margin-left: 2vh;
+  margin-top: 2vh;
+  justify-content: center;
+  align-items: center;
+  font-family: "TT Travels";
+  font-size: calc((100vw - 60rem) / (80 - 30) * (1.5 - 1) + 1rem);
+  color: #000;
+  font-weight: 400;
+  border-radius: 10px;
+  border: 1px solid var(--btn-stroke, #1c1c1c);
+  background: #fff;
+  box-shadow: 2px 4px 10px 0px rgba(0, 0, 0, 0.25);
+}
+
+.answers {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.redactor-answers {
+  border: none;
+}
+.redactor-answer {
+  font-family: "TT Travels";
+  font-size: calc((100vw - 20rem) / (80 - 30) * (1.5 - 1) + 1rem);
+  color: #000;
+  font-weight: 500;
+  text-align: left;
+  display: flex;
+  height: 16vh;
+  padding-left: 2vw;
+  padding-right: 3vw;
+  margin-bottom: 3vh;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 20px;
+  border: none;
+}
+.redactor-answer > div {
+  margin-left: 1vw;
+}
+#first-answer {
+  width: 20vw;
+  font-family: "TT Travels";
+  color: #000;
+  font-style: normal;
+  font-weight: 500;
+  font-size: calc((100vw - 60rem) / (80 - 30) * (1.5 - 1) + 1rem);
+  border: none;
+  background-color: #7eff8b;
+  margin-left: 3vw;
+}
+#second-answer {
+  width: 20vw;
+  font-family: "TT Travels";
+  color: #000;
+  font-style: normal;
+  font-weight: 500;
+  font-size: calc((100vw - 60rem) / (80 - 30) * (1.5 - 1) + 1rem);
+  border: none;
+  background-color: #01e1ff;
+  margin-left: 3vw;
+}
+#third-answer {
+  width: 20vw;
+  font-family: "TT Travels";
+  color: #000;
+  font-style: normal;
+  font-weight: 500;
+  font-size: calc((100vw - 60rem) / (80 - 30) * (1.5 - 1) + 1rem);
+  border: none;
+  background-color: #ff97d0;
+  margin-left: 3vw;
+}
+#fourth-answer {
+  width: 20vw;
+  font-family: "TT Travels";
+  color: #000;
+  font-style: normal;
+  font-weight: 500;
+  font-size: calc((100vw - 60rem) / (80 - 30) * (1.5 - 1) + 1rem);
+  border: none;
+  background-color: #fbfe7a;
+  margin-left: 3vw;
+}
+
+.radio {
+  position: relative;
+}
+.radio__input {
+  -webkit-appearance: none;
+  appearance: none;
+  position: absolute;
+}
+.radio__label:before {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0);
+  border: 1px solid #000;
+  border-radius: 50%;
+  /* margin-bottom: 10px; */
+  z-index: 1;
+}
+.radio__label:after {
+  cursor: pointer;
+  content: "";
+  display: block;
+  width: 32px;
+  height: 32px;
+  background: url("../img/checked.svg") no-repeat;
+  background-size: 32px 32px;
+  border-radius: 50%;
+  opacity: 0;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  z-index: 2;
+}
+.radio__input:checked + .radio__label:after {
+  opacity: 1;
+}
+
+.redactor-content-column {
+  border: none;
+}
+
+.question-info-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+#question {
+  width: 25vw;
+  height: 20vh;
+  resize: none;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+  justify-self: center;
+  align-self: center;
+  border: none;
+  font-family: "TT Travels";
+  font-size: calc((100vw - 20rem) / (80 - 30) * (1.5 - 1) + 1rem);
+  color: #000;
+  font-weight: 500;
+  background-color: #f8f8f8;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.file__input:before {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 50px;
+
+  border-radius: 10px;
+  background: url("../img/add.svg") no-repeat;
+  background-position: center center;
+  background-size: 20px 20px;
+  background-color: #e0dfdf;
+  cursor: pointer;
+}
+.add-sign {
+  font-size: calc((100vw - 60rem) / (80 - 30) * (1.5 - 1) + 1rem);
+}
+.illustration-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 30vw;
+  height: 40vh;
+  background: url("../img/question-placeholder.png") no-repeat;
+  background-size: 30vw auto;
+}
+
+.questions-info-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.active {
+  border: 1px solid #000;
+}
+
+.quiz-redactor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-left: 2vw;
+  margin-bottom: 2vh;
+}
+
+.redactor-team-content-column {
+  display: flex;
+  width: 7vw;
+  margin-right: 3vw;
+}
+
+.redactor-header-content-column {
+  width: 20vw;
+  display: flex;
+  gap: 1vw;
+}
+
+.header-button {
+  color: #000;
+
+  font-family: "TT Travels";
+  font-size: calc((100vw - 99rem) / (80 - 30) * (1.5 - 1) + 1rem);
+  padding: 10px 15px;
+
+  font-style: normal;
+  font-weight: 400;
+  border-radius: 10px;
+  border: 1px solid var(--btn-stroke, #1c1c1c);
+  background: #fff;
+}
+
+.header-button:hover {
+  background: #e0dfdf;
+}
+
+.header-button:active {
+  background: #737373;
+}
+
+#quiz-name {
+  width: 30vw;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 10px;
+  background: #e0dfdf;
+  font-family: "TT Travels";
+  font-size: calc((100vw - 90rem) / (80 - 30) * (1.5 - 1) + 1rem);
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}

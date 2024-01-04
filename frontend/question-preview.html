@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="./css/style.css" rel="stylesheet">
+    <link href="./css/adaptive.css" rel="stylesheet">
+    <title>Kahoot analog</title>
+</head>
+<body>
+    <div class="preloader">
+        <div class="preloader-content">
+            loading<div class="first-dot">.</div><div class="second-dot">.</div><div class="third-dot">.</div>        
+        </div>
+    </div>
+    <header class="card-header">
+        <a href="#" class="back-to-quiz">
+            <img class="arrow" src="./img/arrow.svg" width="10" height="18" alt="Стрелочка - вернуться в начало">
+            <h1 class="quiz-header">Название викторины</h1>
+        </a>
+    </header>
+    <main class="question-preview-main-page">
+        <div class="wrapper">
+            <h1 class="question-preview">Учитывая ключевые сценарии поведения, консультация с широким активом не даёт нам иного выбора ?</h1>
+        </div>
+    </main>
+    <footer class="card-footer">
+        <p class="question-indexes"><span class="question-index">1</span> из <span class="question-count">15</span></p>
+        <p class="timer">8</p>
+        <button class="skip-question" type="button" onclick="location.href='question.html'">Пропустить</button>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="./js/modules/preloader.js"></script>
+    <script src="./js/modules/timer.js"></script>
+</body>
+</html>
