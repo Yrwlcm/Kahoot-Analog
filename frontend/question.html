@@ -1,85 +1,178 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="./css/style.css" rel="stylesheet">
-    <link href="./css/adaptive.css" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="./css/style.css" rel="stylesheet" />
+    <link href="./css/adaptive.css" rel="stylesheet" />
     <title>Kahoot analog</title>
-</head>
-<body>
+  </head>
+  <body>
     <header class="card-header">
-        <a href="#" class="back-to-quiz">
-            <img class="arrow" src="./img/arrow.svg" width="10" height="18" alt="Стрелочка - вернуться в начало">
-            <h1 class="quiz-header">Название викторины</h1>
-        </a>
+      <a href="#" class="back-to-quiz">
+        <img
+          class="arrow"
+          src="./img/arrow.svg"
+          width="10"
+          height="18"
+          alt="Стрелочка - вернуться в начало"
+        />
+        <h1 class="quiz-header">Название викторины</h1>
+      </a>
     </header>
-    <main class="card-content">
-        <div class="card-content-column">
-            <div class="question-info">
-                <h2 class="answers-count">Ответы: <button class="frame" disabled>58</button></h2>
-                <h2 class="timer">Таймер: <button class="frame" disabled>30</button></h2>
-                <button class="next-button" type="button" onclick="location.href='question.html'">Далее</button>
+
+    <main></main>
+    <template id="card-template">
+      <div class="card">
+        <div class="preview">
+          <section class="question-preview-main-page">
+            <div class="wrapper">
+              <h1 class="question-preview">
+                Учитывая ключевые сценарии поведения, консультация с широким
+                активом не даёт нам иного выбора ?
+              </h1>
             </div>
-            <h2 class="question">Учитывая ключевые сценарии поведения, консультация с широким активом не даёт нам иного выбора ?</h2>
-            <img class="question-illustration" src="./img/question-placeholder.png" alt="Иллюстрация вопроса на карточке" >
-            <div class="rating">
-                <ul class="rating-list">
-                    <li class="rating-list-item">
-                        <div class="column first-answer"></div>
-                        <div class="answer-number first-answer">1</div>
-                        <div class="rating-content-column">
-                            <img class="member-rating" src="./img/member.svg" width="23" height="24">
-                            <span class="answer-count">3</span>
-                        </div>
-                    </li>
-                    <li class="rating-list-item">
-                        <div class="column second-answer"></div>
-                        <div class="answer-number second-answer"><span class="right-rating-border">2</span></div>
-                        <div class="rating-content-column">
-                            <img class="member-rating" src="./img/member.svg" width="23" height="24">
-                            <span class="answer-count ">9</span>
-                        </div>
-                    </li>
-                    <li class="rating-list-item">
-                        <div class="column third-answer"></div>
-                        <div class="answer-number third-answer">3</div>
-                        <div class="rating-content-column">
-                            <img class="member-rating" src="./img/member.svg" width="23" height="24">
-                            <span class="answer-count">1</span>
-                        </div>
-                    </li>
-                    <li class="rating-list-item">
-                        <div class="column fourth-answer"></div>
-                        <div class="answer-number fourth-answer">4</div>
-                        <div class="rating-content-column">
-                            <img class="member-rating" src="./img/member.svg" width="23" height="24">
-                            <span class="answer-count">3</span>
-                        </div>
-                    </li>
-                </ul>
-            </div>
+          </section>
+          <section class="preview-footer">
+            <p class="question-indexes">
+              <span class="question-index">1</span> из
+              <span class="question-count">15</span>
+            </p>
+            <p class="timer">5</p>
+            <button class="skip-question" type="button">Пропустить</button>
+          </section>
         </div>
-        <ul class="answers-list">
-            <li class="answers-list-item">
-                <button class="answer first-answer"><div>1</div><p>Учитывая ключевые сценарии поведения, консультация с широким активом не даёт нам иного выбора.</p></button>
-            </li>
-            <li class="answers-list-item">
-                <button class="answer second-answer right"><div id="right-answer">2</div><p>Учитывая ключевые сценарии поведения</p></button>
-            </li>
-            <li class="answers-list-item">
-                <button class="answer third-answer"><div>3</div><p>Учитывая ключевые сценарии поведения, консультация с широким активом не даёт нам иного выбора.</p></button>
-            </li>
-            <li class="answers-list-item">
-                <button class="answer fourth-answer"><div>4</div><p>Учитывая ключевые сценарии поведения, консультация с широким активом не даёт</p></button>
-            </li>
-        </ul>
-    </main>
-    <footer class="card-footer">
-        <p class="question-indexes"><span class="question-index">1</span> из <span class="question-count">15</span></p>
-        <button class="skip-question">Пропустить</button>
-    </footer>
+        <div class="card-info">
+          <div class="card-content">
+            <div class="card-content-column">
+              <div class="question-info">
+                <h2 class="answers-count">
+                  Ответы: <button class="frame" disabled>58</button>
+                </h2>
+                <h2 class="card-timer">
+                  Таймер: <button class="frame" disabled>30</button>
+                </h2>
+                <button class="next-button" type="button">Далее</button>
+              </div>
+              <h2 class="question">
+                Учитывая ключевые сценарии поведения, консультация с широким
+                активом не даёт нам иного выбора ?
+              </h2>
+              <img
+                class="question-illustration"
+                src="./img/question-placeholder.png"
+                alt="Иллюстрация вопроса на карточке"
+              />
+              <div class="rating">
+                <ul class="rating-list">
+                  <li class="rating-list-item">
+                    <div class="column first-answer"></div>
+                    <div class="answer-number first-answer"><span>1</span></div>
+                    <div class="rating-content-column">
+                      <img
+                        class="member-rating"
+                        src="./img/member.svg"
+                        width="23"
+                        height="24"
+                      />
+                      <span class="answer-count">0</span>
+                    </div>
+                  </li>
+                  <li class="rating-list-item">
+                    <div class="column second-answer"></div>
+                    <div class="answer-number second-answer">
+                      <span>2</span>
+                    </div>
+                    <div class="rating-content-column">
+                      <img
+                        class="member-rating"
+                        src="./img/member.svg"
+                        width="23"
+                        height="24"
+                      />
+                      <span class="answer-count">0</span>
+                    </div>
+                  </li>
+                  <li class="rating-list-item">
+                    <div class="column third-answer"></div>
+                    <div class="answer-number third-answer"><span>3</span></div>
+                    <div class="rating-content-column">
+                      <img
+                        class="member-rating"
+                        src="./img/member.svg"
+                        width="23"
+                        height="24"
+                      />
+                      <span class="answer-count">0</span>
+                    </div>
+                  </li>
+                  <li class="rating-list-item">
+                    <div class="column fourth-answer"></div>
+                    <div class="answer-number fourth-answer">
+                      <span>4</span>
+                    </div>
+                    <div class="rating-content-column">
+                      <img
+                        class="member-rating"
+                        src="./img/member.svg"
+                        width="23"
+                        height="24"
+                      />
+                      <span class="answer-count">0</span>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <ul class="answers-list">
+              <li class="answers-list-item">
+                <button class="answer first-answer">
+                  <div>1</div>
+                  <p>
+                    Учитывая ключевые сценарии поведения, консультация с широким
+                    активом не даёт нам иного выбора.
+                  </p>
+                </button>
+              </li>
+              <li class="answers-list-item">
+                <button class="answer second-answer">
+                  <div>2</div>
+                  <p>Учитывая ключевые сценарии поведения</p>
+                </button>
+              </li>
+              <li class="answers-list-item">
+                <button class="answer third-answer">
+                  <div>3</div>
+                  <p>
+                    Учитывая ключевые сценарии поведения, консультация с широким
+                    активом не даёт нам иного выбора.
+                  </p>
+                </button>
+              </li>
+              <li class="answers-list-item">
+                <button class="answer fourth-answer">
+                  <div>4</div>
+                  <p>
+                    Учитывая ключевые сценарии поведения, консультация с широким
+                    активом не даёт
+                  </p>
+                </button>
+              </li>
+            </ul>
+          </div>
+          <div class="card-footer">
+            <p class="question-indexes">
+              <span class="question-index">1</span> из
+              <span class="question-count">15</span>
+            </p>
+            <button class="skip-question">Пропустить</button>
+          </div>
+        </div>
+      </div>
+    </template>
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-    <script src="./js/modules/answer.js"></script>
-</body>
+    <script src="./js/modules/test.js"></script>
+
+    <!-- <script src="./js/modules/answer.js"></script> -->
+  </body>
 </html>
