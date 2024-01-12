@@ -1,77 +1,130 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@500&display=swap" rel="stylesheet">
-    <link href="./css/style.css" rel="stylesheet">
-    <link href="./css/adaptive.css" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Urbanist:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link href="./css/style.css" rel="stylesheet" />
+    <link href="./css/adaptive.css" rel="stylesheet" />
     <title>Kahoot analog</title>
-</head>
-<body>
-
+  </head>
+  <body>
     <div class="preloader">
-        <div class="preloader-content">
-            loading<div class="first-dot">.</div><div class="second-dot">.</div><div class="third-dot">.</div>        
-        </div>
+      <div class="preloader-content">
+        loading
+        <div class="first-dot">.</div>
+        <div class="second-dot">.</div>
+        <div class="third-dot">.</div>
+      </div>
     </div>
 
     <header class="qr-code-generation-header">
-        <a href="#" class="back-to-quiz">
-            <img class="arrow" src="./img/arrow.svg" width="10" height="18" alt="Стрелочка - вернуться в начало">
-            <h1 class="quiz-header">Название викторины</h1>
-        </a>
-        <div class="header-content-column">
-            <img class="logo" src="./img/logo.svg" width="39" height="34" alt="Логотип">
-            <p class="team">QBrain</p>
-        </div>
+      <a href="#" class="back-to-quiz">
+        <img
+          class="arrow"
+          src="./img/arrow.svg"
+          width="10"
+          height="18"
+          alt="Стрелочка - вернуться в начало"
+        />
+        <h1 class="quiz-header">Название викторины</h1>
+      </a>
+      <div class="header-content-column">
+        <img
+          class="logo"
+          src="./img/logo.svg"
+          width="39"
+          height="34"
+          alt="Логотип"
+        />
+        <p class="team">QBrain</p>
+      </div>
     </header>
     <main class="main-page-with-qr">
-        <img class="question-symbol" src="./img/question-symbol.svg" width="162" height="214" alt="Знак вопроса">
-        <img class="crown-symbol" src="./img/crown.svg" width="214" height="144" alt="Корона">
-        <div class="main-page-content-column">
-            <h1 class="code-generation">Генерация пинкода викторины
-                <div class="first-dot">.</div>
-                <div class="second-dot">.</div>
-                <div class="third-dot">.</div>
-            </h1>
+      <img
+        class="question-symbol"
+        src="./img/question-symbol.svg"
+        width="162"
+        height="214"
+        alt="Знак вопроса"
+      />
+      <img
+        class="crown-symbol"
+        src="./img/crown.svg"
+        width="214"
+        height="144"
+        alt="Корона"
+      />
+      <div class="main-page-content-column">
+        <h1 class="code-generation">
+          Генерация пинкода викторины
+          <div class="first-dot">.</div>
+          <div class="second-dot">.</div>
+          <div class="third-dot">.</div>
+        </h1>
+      </div>
+      <div class="hidden join-quiz">
+        <div class="pin-code-column">
+          <h1 class="pin-code-header">Пинкод викторины:</h1>
+          <p class="pin-code">000 000</p>
         </div>
-        <div class="hidden join-quiz">
-            <div class="pin-code-column">
-                <h1 class="pin-code-header">Пинкод викторины:</h1>
-                <p class="pin-code">000 000</p> 
-            </div>
-            <img class="qr-code" src="./img/qr.png" width="256px" height="256px" alt="QR-код для входа">
+        <img
+          class="qr-code"
+          src="./img/qr.png"
+          width="256px"
+          height="256px"
+          alt="QR-код для входа"
+        />
+      </div>
+      <div class="members">
+        <h2 class="waiting">
+          Ждем игроков
+          <div class="first-dot">.</div>
+          <div class="second-dot">.</div>
+          <div class="third-dot">.</div>
+        </h2>
+        <div class="members-content-column">
+          <ul class="members-list"></ul>
+          <p class="hidden additional"></p>
         </div>
-        <div class="members">
-            <h2 class="waiting">Ждем игроков 
-                <div class="first-dot">.</div>
-                <div class="second-dot">.</div>
-                <div class="third-dot">.</div>
-            </h2>
-            <div class="members-content-column">
-                <ul class="members-list">
-                </ul>
-                <p class="hidden additional"></p>
-            </div>
-        </div>
+      </div>
 
-        <template id="member-template">
-            <li class="members-list-item">
-                <img class='member-item' src="" width="60" height="60" alt="Иконка участника">
-                <p class="member-nickname"></p>
-            </li>
-        </template>
-        
+      <template id="member-template">
+        <li class="members-list-item">
+          <img
+            class="member-item"
+            src=""
+            width="60"
+            height="60"
+            alt="Иконка участника"
+          />
+          <p class="member-nickname"></p>
+        </li>
+      </template>
     </main>
     <footer class="footer-page-with-qr">
-        <div class="members-count">
-            <img class="member" src="./img/member.svg" width="23" height="24" alt="Иконка количества участников">
-            <p class="count">0</p>
-        </div>
-        <button class="start-quiz" type="button" onclick="location.href='question-preview.html'">Старт</button>
+      <div class="members-count">
+        <img
+          class="member"
+          src="./img/member.svg"
+          width="23"
+          height="24"
+          alt="Иконка количества участников"
+        />
+        <p class="count">0</p>
+      </div>
+      <button
+        class="start-quiz"
+        type="button"
+        onclick="location.href='question.html'"
+      >
+        Старт
+      </button>
     </footer>
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <script src="./js/modules/preloader.js"></script>
@@ -79,5 +132,5 @@
     <script src="./js/modules/members.js"></script>
 
     <!-- <script src="./js/main.js" type="module"></script> -->
-</body>
+  </body>
 </html>

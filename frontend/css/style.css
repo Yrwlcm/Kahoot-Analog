@@ -87,7 +87,7 @@ body {
 .back-to-quiz {
   text-decoration: none;
   display: flex;
-  width: 15vw;
+  width: 17vw;
   justify-content: space-between;
   align-items: center;
 }
@@ -97,6 +97,11 @@ body {
   flex-direction: row-reverse;
   justify-content: space-between;
   margin-bottom: 2vh;
+}
+
+.card-info {
+  display: flex;
+  flex-direction: column;
 }
 
 .card-footer {
@@ -121,6 +126,17 @@ body {
   font-size: calc((100vw - 50rem) / (80 - 30) * (1.5 - 1) + 1rem);
 }
 
+.preview-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 1vw;
+
+  /* margin-right: 1vw;
+  margin-bottom: 1vw; */
+}
+
+.card-timer,
 .timer {
   display: block;
   margin-top: 0;
@@ -159,6 +175,7 @@ body {
   margin: 0;
   padding: 0;
   list-style: none;
+  width: 45vw;
 }
 
 .answers-list-item {
@@ -229,7 +246,8 @@ body {
   font-size: calc((100vw - 55rem) / (80 - 30) * (1.5 - 1) + 1rem);
 }
 
-.skip-question {
+.skip-question,
+.skip-preview {
   color: #000;
   font-weight: 400;
   line-height: 2vh;
@@ -243,11 +261,13 @@ body {
   cursor: pointer;
 }
 
-.skip-question:hover {
+.skip-question:hover,
+.skip-preview:hover {
   background: #e0dfdf;
 }
 
-.skip-question:active {
+.skip-question:active,
+.skip-preview:active {
   background: #737373;
 }
 
@@ -281,7 +301,7 @@ body {
   font-family: "Urbanist";
   color: #4b4a4a;
   letter-spacing: 1.2px;
-  font-size: calc((100vw - 10rem) / (80 - 30) * (1.5 - 1) + 1rem);
+  font-size: calc((100vw - 8rem) / (80 - 30) * (1.5 - 1) + 1rem);
   font-weight: 500;
   line-height: normal;
   padding: 0;
@@ -529,9 +549,11 @@ body {
   margin: 0;
   padding: 0;
   width: 35vw;
+  text-align: center;
 }
 
-.next-button {
+.next-button,
+.close-button {
   display: none;
   margin-left: auto;
   color: #000;
@@ -548,11 +570,13 @@ body {
   cursor: pointer;
 }
 
-.next-button:hover {
+.next-button:hover,
+.close-button:hover {
   background: rgba(224, 223, 223, 0.8);
 }
 
-.next-button:active {
+.next-button:active,
+.close-button:active {
   background: rgba(115, 115, 115, 0.8);
 }
 
@@ -635,7 +659,6 @@ body {
 
 .right-rating-border {
   display: flex;
-  /* margin-left: -1vw; */
   justify-content: center;
   align-items: center;
   width: 2vw;
@@ -962,4 +985,126 @@ input[type="file"] {
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+}
+
+.leader-board-body,
+.winners-body {
+  background: #c3cdff;
+}
+
+.leader-board-header,
+.winners-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.leader-board-main,
+.winners-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.leader-board-name {
+  width: fit-content;
+  padding: 0;
+  margin: 0;
+  font-weight: 400;
+  font-size: calc((100vw - 50rem) / (80 - 30) * (1.5 - 1) + 1rem);
+  padding: 20px 40px;
+  border-radius: 10px;
+  background-color: #f8f8f8;
+  margin-bottom: 5vh;
+}
+
+.member-table {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.member-table-item {
+  display: flex;
+  width: 70vw;
+  justify-content: space-between;
+  align-items: center;
+  font-size: calc((100vw - 80rem) / (80 - 30) * (1.5 - 1) + 1rem);
+  font-weight: 400;
+  border-radius: 10px;
+  background: #fff;
+  padding: 20px 40px;
+  margin-bottom: 30px;
+}
+
+.member-table-item:last-child {
+  margin-bottom: 0;
+}
+
+.item-wrapper {
+  display: flex;
+  width: 13vw;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.avatar-border {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 1px solid black;
+}
+
+.winners-content {
+  display: flex;
+  width: 10vw;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5vh;
+}
+
+.winners-title {
+  padding: 0;
+  margin: 0;
+  font-weight: 600;
+  font-size: calc((100vw - 40rem) / (80 - 30) * (1.5 - 1) + 1rem);
+  margin-bottom: 7vh;
+}
+
+.winners-table {
+  display: flex;
+  align-items: end;
+}
+
+.winners-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 16vw;
+  background-color: #fff;
+  border-radius: 15px 15px 0px 0px;
+  border: 1px solid var(--btn-next, #1c1c1c);
+}
+.winners-column > img {
+  width: 10vw;
+  height: auto;
+}
+.winners-column > span {
+  padding: 0;
+  margin: 0;
+  font-weight: 400;
+  font-size: calc((100vw - 40rem) / (80 - 30) * (1.5 - 1) + 1rem);
+}
+
+.first-place {
+  height: 71vh;
+}
+.second-place {
+  height: 60vh;
+}
+.third-place {
+  height: 50vh;
 }
